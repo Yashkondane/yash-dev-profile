@@ -470,3 +470,8 @@ section {
 .card:hover::before {
   opacity: 1;
 }
+
+/* ── Performance: let vertical scroll pass through all WebGL canvases ── */
+canvas {
+  touch-action: pan-y !important;
+}
