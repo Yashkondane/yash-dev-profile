@@ -157,7 +157,7 @@ const AppShowcase = () => {
 
                 {/* Text */}
                 <div className="xl:w-1/2 w-full flex flex-col gap-5">
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold px-2 md:px-0">
                     {project.title}
                   </h2>
                   <p className="text-white-50 text-base md:text-lg leading-relaxed">
