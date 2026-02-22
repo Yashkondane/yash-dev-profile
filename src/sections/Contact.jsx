@@ -95,8 +95,20 @@ const Contact = () => {
             </div>
           </div>
           <div className="xl:col-span-7 min-h-96">
-            <div className="bg-[#cd7c2e] w-full h-full hover:cursor-grab rounded-3xl overflow-hidden">
-              <ContactExperience />
+            <div className="bg-[#cd7c2e] w-full h-full rounded-3xl overflow-hidden relative group">
+              <img
+                src="/images/bg.png"
+                alt="Contact visual"
+                className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 flex items-center justify-center p-10">
+                <div className="text-white text-opacity-80 font-mono text-lg bg-black bg-opacity-40 p-6 rounded-xl backdrop-blur-sm border border-white border-opacity-10">
+                  <p className="mb-2">$ contact --init</p>
+                  <p className="mb-2">&gt; Connecting to Yash Kondane...</p>
+                  <p className="mb-2">&gt; Waiting for your message...</p>
+                  <p className="animate-pulse">_</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
