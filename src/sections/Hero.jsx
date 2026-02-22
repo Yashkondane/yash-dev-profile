@@ -63,7 +63,7 @@ const Hero = () => {
               <h1>that Deliver Results</h1>
             </div>
 
-            <p className="text-white-50 md:text-xl relative z-10 pointer-events-none px-4 md:px-0">
+            <p className="text-white-50 md:text-xl relative z-10 pointer-events-none md:max-w-md max-w-xs leading-relaxed">
               Hi, I&apos;m Yash Kondane, a developer with a passion for code and building high-performance 3D experiences.
             </p>
 

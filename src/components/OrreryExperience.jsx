@@ -176,7 +176,7 @@ const OrreryExperience = () => {
             preserveDrawingBuffer: true
         });
         renderer.setSize(width, height);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
         renderer.toneMappingExposure = 1.2;
         renderer.shadowMap.enabled = true;
@@ -456,9 +456,13 @@ const OrreryExperience = () => {
         const resizeObserver = new ResizeObserver(onResize);
         resizeObserver.observe(container);
 
+        // Visibility flag — paused while hero is off-screen
+        let isVisible = true;
+
         // Animation loop
         function animate() {
             animFrameRef.current = requestAnimationFrame(animate);
+            if (!isVisible) return; // skip rendering when off-screen
             const delta = clock.getDelta() * sceneDataRef.current.timeAcceleration;
             const t = clock.getElapsedTime();
 
@@ -497,10 +501,18 @@ const OrreryExperience = () => {
         }
         animate();
 
+        // Pause render loop when hero scrolls out of view
+        const visibilityObserver = new IntersectionObserver(
+            (entries) => { isVisible = entries[0].isIntersecting; },
+            { threshold: 0.05 }
+        );
+        visibilityObserver.observe(container);
+
         // Cleanup
         return () => {
             if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
             resizeObserver.disconnect();
+            visibilityObserver.disconnect();
             renderer.dispose();
             composer.dispose();
             controls.dispose();
