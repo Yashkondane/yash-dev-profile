@@ -17,11 +17,21 @@ const Hero = () => {
           </div>
 
           <div className="mt-12 relative z-20 pointer-events-auto flex justify-center">
-            <Button
-              text="See Our Past Work"
-              className="w-auto"
-              id="work"
-            />
+            <a
+              href="#work"
+              onClick={(e) => {
+                e.preventDefault();
+                const target = document.getElementById('work');
+                if (target) {
+                  const offset = window.innerHeight * 0.15;
+                  const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                  window.scrollTo({ top, behavior: "smooth" });
+                }
+              }}
+              className="inline-block px-8 py-4 bg-white text-black rounded-lg font-bold uppercase tracking-wider hover:bg-gray-200 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 transform duration-300"
+            >
+              See Our Past Work
+            </a>
           </div>
 
           <div className="absolute bottom-12 flex flex-col items-center gap-2 text-white/50 animate-pulse pointer-events-none">

@@ -28,12 +28,18 @@ const Contact = () => {
           title="Get in Touch – Let’s Connect"
           sub="💬 Have questions or ideas? Let’s talk! 🚀"
         />
-        <div className="mt-6 flex justify-center">
+        <div className="mt-6 flex flex-col md:flex-row justify-center gap-6">
           <a
             href="mailto:kondaneyash@gmail.com"
             className="text-white-50 text-lg md:text-xl hover:text-white transition-colors duration-300"
           >
             📧 kondaneyash@gmail.com
+          </a>
+          <a
+            href="mailto:malinimj24@gmail.com"
+            className="text-white-50 text-lg md:text-xl hover:text-white transition-colors duration-300"
+          >
+            📧 malinimj24@gmail.com
           </a>
         </div>
         <div className="grid-12-cols mt-16">
