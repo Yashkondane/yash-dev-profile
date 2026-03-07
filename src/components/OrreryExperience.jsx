@@ -143,8 +143,6 @@ const OrreryExperience = () => {
     const containerRef = useRef(null);
     const sceneDataRef = useRef(null);
     const animFrameRef = useRef(null);
-    const [themeLabel, setThemeLabel] = useState("Inferno");
-    const [timeLabel, setTimeLabel] = useState("1x");
 
     // ── Initialize Three.js ──
     useEffect(() => {
@@ -382,7 +380,8 @@ const OrreryExperience = () => {
             ringMaterial.color.set(theme.ringColor);
         }
 
-        applyTheme(0);
+        // Hardcode Celestial theme (index 2)
+        applyTheme(2);
 
         // Create arc
         function createEnhancedArc(obj1, obj2, duration) {
@@ -604,39 +603,6 @@ const OrreryExperience = () => {
                     overflow: "hidden",
                 }}
             />
-
-            {/* Control buttons */}
-            <div
-                style={{
-                    position: "absolute",
-                    bottom: "12px",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    zIndex: 10,
-                    display: "flex",
-                    flexWrap: "wrap",
-                    justifyContent: "center",
-                    gap: "8px",
-                    padding: "6px",
-                    background: "rgba(255,255,255,0.02)",
-                    backdropFilter: "blur(40px) saturate(180%)",
-                    borderRadius: "14px",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                }}
-            >
-                <button className="orrery-btn" onClick={handleResetView}>
-                    Reset
-                </button>
-                <button className="orrery-btn orrery-btn-activate" onClick={handleActivateResonance}>
-                    Resonance
-                </button>
-                <button className="orrery-btn" onClick={handleTimeAccel}>
-                    {timeLabel}
-                </button>
-                <button className="orrery-btn" onClick={handleToggleTheme}>
-                    {themeLabel}
-                </button>
-            </div>
         </div>
     );
 };

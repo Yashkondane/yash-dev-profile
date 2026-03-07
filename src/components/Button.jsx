@@ -10,10 +10,10 @@ const Button = ({ text, className, id }) => {
       onClick={(e) => {
         e.preventDefault(); // Stop the link from jumping instantly
 
-        const target = document.getElementById("counter"); // Find the section with ID "counter"
+        const target = document.getElementById(id); // Find the section dynamically by pass ID
 
         // Only scroll if we found the section and an ID is passed in
-        // taht prevents the contact button from scrolling to the top
+        // that prevents the contact button from scrolling to the top
         if (target && id) {
           const offset = window.innerHeight * 0.15; // Leave a bit of space at the top
 
