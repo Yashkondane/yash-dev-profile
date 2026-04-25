@@ -22,7 +22,7 @@ const projects = [
       "A premium wellness platform featuring a full members dashboard, an admin dashboard with Google Drive API integration for sharing resources, and Calendly-powered session booking. Admins can manage content, members, and resources — all from one place.",
     tags: ["Next.js", "Supabase", "Calendly", "Google Drive API", "Stripe"],
     imgPath: "/images/af6a448f-c99f-456a-9188-cb8b439a8999.png",
-    url: "https://soulhome-website-1.vercel.app/",
+    url: "https://soulhomelove.com/",
     layout: "image-right",
   },
   {
@@ -35,13 +35,22 @@ const projects = [
     layout: "image-left",
   },
   {
+    title: "GR Group – Real Estate & CMS",
+    description:
+      "A complete Content Management System and corporate platform built for GR Group, a leading real estate firm in Bangalore. Developed using PHP and Laravel for a robust backend, with a high-performance frontend crafted with HTML and CSS.",
+    tags: ["PHP", "Laravel", "HTML", "CSS", "Bangalore"],
+    imgPath: "/images/a5ad31d4-7c9a-47e5-9e26-5d1d2d744ede.png",
+    url: "https://www.grgroup.in/",
+    layout: "image-right",
+  },
+  {
     title: "XMF – Martial Arts Academy Platform",
     description:
       "A Bangalore-based martial arts academy website with a full student dashboard. Students can scan the QR code on their ID card to instantly access their dashboard and track stats — all updated by the admin. A seamless digital experience for both students and instructors.",
     tags: ["Next.js", "Student Dashboard", "QR Access", "Bangalore"],
     imgPath: "/images/fadd09ac-f971-4ec7-b58c-19a714b5abea.png",
     url: "https://xmf.co.in",
-    layout: "image-right",
+    layout: "image-left",
   },
   {
     title: "RemyaKrishnaKripa – Akashic Reading & Wellness",
@@ -50,7 +59,7 @@ const projects = [
     tags: ["Next.js", "Calendly", "WhatsApp API", "India"],
     imgPath: "/images/43da7ceb-a6b2-4f2b-baa5-9e7c2ef9a470.png",
     url: "https://remyakrishnakripa.com",
-    layout: "image-left",
+    layout: "image-right",
   },
   {
     title: "TuberoExperts – Plumbing Services Website",
@@ -59,7 +68,7 @@ const projects = [
     tags: ["Next.js", "SEO Optimized", "Philippines"],
     imgPath: "/images/c34ed50e-53cf-4a58-971d-7d5a1754f8a5.png",
     url: "https://tuberoexperts.com/",
-    layout: "image-right",
+    layout: "image-left",
   },
   {
     title: "Caramellas – Cake Shop",
@@ -68,7 +77,7 @@ const projects = [
     tags: ["Web Design", "E-commerce", "India"],
     imgPath: "/images/f2565d0e-79ec-437e-9601-bfecb1e13817.png",
     url: "https://caramellas.in/",
-    layout: "image-left",
+    layout: "image-right",
   },
   {
     title: "Pawar Travels – Cab Services Website",
@@ -77,7 +86,7 @@ const projects = [
     tags: ["Next.js", "SEO Optimized", "Pune, India"],
     imgPath: "/images/6361bb89-cb9b-4fb4-a1cd-bf1f4aae9e8c.png",
     url: "https://pawartravels.com/",
-    layout: "image-right",
+    layout: "image-left",
   },
   {
     title: "Acron Spring – Spring Manufacturing",
@@ -86,6 +95,15 @@ const projects = [
     tags: ["Web Design", "Manufacturing", "Industrial"],
     imgPath: "/images/665db6c3-0534-466c-be03-2b1ab45f0f1f.png",
     url: "https://acronspring.com/",
+    layout: "image-right",
+  },
+  {
+    title: "Mumbai Cabs Service",
+    description:
+      "A high-performance Next.js website created with the sole purpose of generating leads through Google Ads. Designed with a simple UI and optimized for high-speed loading to maximize lead capture efficiency for Mumbai-based cab services.",
+    tags: ["Next.js", "Google Ads", "Lead Generation", "Mumbai"],
+    imgPath: "/images/b8ad4af3-c664-4e6a-9e8e-67e456cfce99.png",
+    url: "https://www.mumbaicabsservice.com/",
     layout: "image-left",
   },
 ];
