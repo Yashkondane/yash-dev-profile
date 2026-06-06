@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
 
 import TitleHeader from "../components/TitleHeader";
 import WireframeExperience from "../components/WireframeExperience";
 
 const Contact = () => {
+  const formRef = useRef(null);
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -17,8 +20,38 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: wire up to your preferred contact method
-    setForm({ name: "", email: "", message: "" });
+    setLoading(true);
+
+    // EmailJS credentials
+    const serviceId = "service_meds19n";
+    const templateId = "template_ve8qkoq";
+    const publicKey = "k59QGMN4iOyRR7-HO";
+
+    emailjs
+      .send(
+        serviceId,
+        templateId,
+        {
+          from_name: form.name,
+          to_name: "Hyperlink Tech Solutions",
+          from_email: form.email,
+          to_email: "your-email@example.com",
+          message: form.message,
+        },
+        publicKey
+      )
+      .then(
+        () => {
+          setLoading(false);
+          alert("Thank you! We will get back to you as soon as possible.");
+          setForm({ name: "", email: "", message: "" });
+        },
+        (error) => {
+          setLoading(false);
+          console.error(error);
+          alert("Something went wrong. Please try again.");
+        }
+      );
   };
 
   return (
@@ -46,6 +79,7 @@ const Contact = () => {
           <div className="xl:col-span-5">
             <div className="flex-center card-border rounded-xl p-10">
               <form
+                ref={formRef}
                 onSubmit={handleSubmit}
                 className="w-full flex flex-col gap-7"
               >
@@ -88,10 +122,10 @@ const Contact = () => {
                   />
                 </div>
 
-                <button type="submit">
+                <button type="submit" disabled={loading}>
                   <div className="cta-button group">
                     <div className="bg-circle" />
-                    <p className="text">Send Message</p>
+                    <p className="text">{loading ? "Sending..." : "Send Message"}</p>
                     <div className="arrow-wrapper">
                       <img src="/images/arrow-down.svg" alt="arrow" />
                     </div>

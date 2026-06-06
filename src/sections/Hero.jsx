@@ -1,12 +1,12 @@
 import React from 'react';
-import { TubesBackground } from "../components/ui/neon-flow";
-import Button from "../components/Button";
+import { GLSLHills } from "../components/ui/glsl-hills";
 
 const Hero = () => {
   return (
     <section id="hero" className="relative font-sans" style={{ minHeight: "100dvh" }}>
-      <TubesBackground>
-        <div className="flex flex-col items-center justify-center w-full min-h-[100dvh] gap-8 text-center px-4 relative z-10">
+      <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden">
+        <GLSLHills />
+        <div className="flex flex-col items-center justify-center w-full min-h-[100dvh] gap-8 text-center px-4 absolute inset-0 z-10 pointer-events-none">
           <div className="space-y-6 pointer-events-auto cursor-default mt-20 md:mt-0 max-w-4xl relative z-20">
             <h1 className="text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white to-white/40 drop-shadow-lg">
               Architecting <br className="hidden md:block" /> the Future
@@ -33,14 +33,8 @@ const Hero = () => {
               See Our Past Work
             </a>
           </div>
-
-          <div className="absolute bottom-12 flex flex-col items-center gap-2 text-white/50 animate-pulse pointer-events-none">
-            <span className="text-xs md:text-sm uppercase tracking-widest text-center px-4">
-              Move the cursor around to interact and Click to randomize.
-            </span>
-          </div>
         </div>
-      </TubesBackground>
+      </div>
     </section>
   );
 };
