@@ -1,26 +1,28 @@
-import Testimonials from "./sections/Testimonials";
-import Footer from "./sections/Footer";
-import Contact from "./sections/Contact";
-import TechStack from "./sections/TechStack";
-import Hero from "./sections/Hero";
-import ShowcaseSection from "./sections/ShowcaseSection";
-import LogoShowcase from "./sections/LogoShowcase";
-import FeatureCards from "./sections/FeatureCards";
+import { Suspense, lazy } from "react";
 import Navbar from "./components/NavBar";
-import Preloader from "./components/Preloader";
+
+const Hero = lazy(() => import("./sections/Hero"));
+const ShowcaseSection = lazy(() => import("./sections/ShowcaseSection"));
+const LogoShowcase = lazy(() => import("./sections/LogoShowcase"));
+const FeatureCards = lazy(() => import("./sections/FeatureCards"));
+const TechStack = lazy(() => import("./sections/TechStack"));
+const Testimonials = lazy(() => import("./sections/Testimonials"));
+const Contact = lazy(() => import("./sections/Contact"));
+const Footer = lazy(() => import("./sections/Footer"));
 
 const App = () => (
   <>
-    <Preloader />
     <Navbar />
-    <Hero />
-    <ShowcaseSection />
-    <LogoShowcase />
-    <FeatureCards />
-    <TechStack />
-    <Testimonials />
-    <Contact />
-    <Footer />
+    <Suspense fallback={<div className="h-screen w-screen bg-black" />}>
+      <Hero />
+      <ShowcaseSection />
+      <LogoShowcase />
+      <FeatureCards />
+      <TechStack />
+      <Testimonials />
+      <Contact />
+      <Footer />
+    </Suspense>
   </>
 );
 
