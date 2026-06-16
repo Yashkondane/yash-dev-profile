@@ -1,14 +1,26 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useState, useEffect } from 'react';
 
 const GLSLHills = lazy(() => import("../components/ui/glsl-hills").then(module => ({ default: module.GLSLHills })));
 
 const Hero = () => {
+  const [load3D, setLoad3D] = useState(false);
+
+  useEffect(() => {
+    // Delay loading the heavy 3D scene to ensure the hero text paints immediately
+    const timer = setTimeout(() => {
+      setLoad3D(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section id="hero" className="relative font-sans" style={{ minHeight: "100dvh" }}>
       <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden">
-        <Suspense fallback={<div className="absolute inset-0 bg-black" />}>
-          <GLSLHills />
-        </Suspense>
+        {load3D && (
+          <Suspense fallback={<div className="absolute inset-0 bg-black" />}>
+            <GLSLHills />
+          </Suspense>
+        )}
         <div className="flex flex-col items-center justify-center w-full min-h-[100dvh] gap-8 text-center px-4 absolute inset-0 z-10 pointer-events-none">
           <div className="space-y-6 pointer-events-auto cursor-default mt-20 md:mt-0 max-w-4xl relative z-20">
             <h1 className="text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white to-white/40 drop-shadow-lg">
